@@ -27,7 +27,7 @@ Users can be stored as friends in other User objects in the database and can als
 
 This api can be used as a back-end pai for a social network app where users can follow other users and create posts for everyone to see.
 
-[![Social Network Api Demo](https://img.youtube.com/vi/CZfQZRbhygA/maxresdefault.jpg)](https://youtu.be/watch?v=CZfQZRbhygA)\
+[![Social Network Api Demo](https://img.youtube.com/vi/CZfQZRbhygA/maxresdefault.jpg)](https://youtu.be/watch?v=CZfQZRbhygA)
 >Click the image to be taken to this app's demo video on youtube
 
 ## License
