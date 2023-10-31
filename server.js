@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 
 const user_routes = require('./controllers/user_routes');
+const friends_routes = require('./controllers/friends_routes');
 
 require('dotenv').config();
 
@@ -26,7 +27,7 @@ app.use(session({
 }));
 
 // Load api routes
-app.use('/api', user_routes);
+app.use('/api', user_routes, friends_routes);
 
 // Catch any unknown routes
 app.use('*', (req, res) => {
