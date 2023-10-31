@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('express-session');
 
+const user_routes = require('./controllers/user_routes');
+
 require('dotenv').config();
 
 const db = require('./config/db');
@@ -24,6 +26,7 @@ app.use(session({
 }));
 
 // Load api routes
+app.use('/api', user_routes);
 
 // Catch any unknown routes
 app.use('*', (req, res) => {
