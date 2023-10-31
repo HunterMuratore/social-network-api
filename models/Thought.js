@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const reactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
-        default: new ObjectId()
+        default: () => new ObjectId()
     },
     reactionBody: {
         type: String,
@@ -15,13 +15,13 @@ const reactionSchema = new Schema({
         required: true
     },
     createdAt: {
-        tpye: Date,
+        type: Date,
         default: Date.now,
-        get: function*(createdAt) {
+        get: function(createdAt) {
             return createdAt.toLocaleDateString('en-US'); // Formats string to MM/DD/YYYY
         }
     }
-})
+});
 
 const thoughtSchema = new Schema({
     thoughtText: {
