@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const User = require('../models/User');
+const Thought = require('../models/Thought');
 
 // Get all Users
 router.get('/users', async (req, res) => {
@@ -65,10 +66,16 @@ router.delete('/users/:id', async (req, res) => {
     const id = req.params.id;
 
     try {
-        const user = await User.findByIdAndDelete(id);
+        const user = await User.findById(id);
 
         if (!user) {
             return res.status(404).send({ message: 'User not found' });
+        }
+
+        await user.deleteOne();
+
+        for (const thoughtId of user.thoughts) {
+            await Thought.findByIdAndDelete(thoughtId);
         }
 
         res.send(user);
