@@ -50,7 +50,7 @@ router.put('/users/:id', async (req, res) => {
         const user = await User.findByIdAndUpdate(id, req.body, { new: true });
 
         if (!user) {
-            return res.status(404).send({ message: "User not found" });
+            return res.status(404).send({ message: 'User not found' });
         }
 
         res.send(user);
@@ -68,7 +68,7 @@ router.delete('/users/:id', async (req, res) => {
         const user = await User.findByIdAndDelete(id);
 
         if (!user) {
-            return res.status(404).send({ message: "User not found" });
+            return res.status(404).send({ message: 'User not found' });
         }
 
         res.send(user);
